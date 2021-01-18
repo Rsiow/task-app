@@ -11,8 +11,105 @@
 </head>
 
 <body>
-    <p>Hello what is up</p>
-    <p>We are some cool cats</p>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Task-App</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col text-center pt-4 mt-1">
+                <!-- <p>Name: </p> -->
+                <!-- Get back to this bit later!!! -->
+                <label for="name">Name</label>
+            </div>
+            <div class="col">
+                <form>
+                    <div class="form-group  was-validated">
+                        <label for="name"></label>
+                        <input type="text" class="form-control" id="name" placeholder="Please enter your name" required>
+                        <div class="invalid-feedback">
+                            Please enter a name
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center pt-4 mt-1">
+                <p>Description: </p>
+            </div>
+            <div class="col">
+                <form class="was-validated">
+                    <div class="mb-3">
+                        <label for="description"></label>
+                        <textarea class="form-control is-invalid" id="description" placeholder="Describe the task"
+                            required></textarea>
+                        <div class="invalid-feedback">
+                            Please enter a message in the textarea
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center pt-4 mt-1">
+                <p>Assigned To: </p>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="assigned-person"></label>
+                    <select class="form-control" id="assigned-person">
+                        <option>Robin</option>
+                        <option>Richie</option>
+                        <option>Pedro</option>
+                        <option>Seethal</option>
+                        <option>Robin</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center pt-4 mt-1">
+                <p>Due Date: </p>
+            </div>
+            <div class="col">
+                <label for="date-input"></label>
+                <input type="date" class="form-control" id="date-input">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center pt-4 mt-1">
+                <p>Status: </p>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="status"></label>
+                    <select class="form-control" id="status">
+                        <option>Completed</option>
+                        <option>In Progress</option>
+                        <option>Pending Assignee</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <input type="submit" class="btn btn-primary" value="Send">
+        </div>
+    </div>
+
 </body>
 
 </html>
