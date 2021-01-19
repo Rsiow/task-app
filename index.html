@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <!-- Navbar -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light">
             <a class="navbar-brand" href="#">Task-App</a>
@@ -27,13 +28,11 @@
             </div>
         </nav>
     </header>
-
+    <!-- Name input -->
     <div class="container">
         <div class="row">
             <div class="col text-center pt-4 mt-1">
-                <!-- <p>Name: </p> -->
-                <!-- Get back to this bit later!!! -->
-                <label for="name">Name</label>
+                <p>Name: </p>
             </div>
             <div class="col">
                 <form>
@@ -48,6 +47,7 @@
                 </form>
             </div>
         </div>
+        <!-- Description input -->
         <div class="row">
             <div class="col text-center pt-4 mt-1">
                 <p>Description: </p>
@@ -58,13 +58,14 @@
                         <label for="description"></label>
                         <textarea class="form-control is-invalid" id="description" placeholder="Describe the task"
                             name="description" required></textarea>
-                        <!-- <div class="invalid-feedback">
+                        <div class="invalid-feedback">
                             Please enter a message in the textarea
-                        </div> -->
+                        </div>
                     </div>
                 </form>
             </div>
         </div>
+        <!-- Assignee Input -->
         <div class="row">
             <div class="col text-center pt-4 mt-1">
                 <p>Assigned To: </p>
@@ -82,6 +83,7 @@
                 </div>
             </div>
         </div>
+        <!-- Due Date input -->
         <div class="row">
             <div class="col text-center pt-4 mt-1">
                 <p>Due Date: </p>
@@ -91,6 +93,7 @@
                 <input type="date" class="form-control" id="date-input" name="date-input">
             </div>
         </div>
+        <!-- Status Input -->
         <div class="row">
             <div class="col text-center pt-4 mt-1">
                 <p>Status: </p>
@@ -106,9 +109,11 @@
                 </div>
             </div>
         </div>
+        <!-- Submit button -->
         <div class="text-center">
-            <input type="submit" class="btn btn-primary" value="Send">
+            <input type="submit" class="btn btn-primary" value="Submit">
         </div>
+        <!-- Task cards -->
         <div class="row justify-content-center pt-4">
             <h2>Tasks: </h2>
         </div>
