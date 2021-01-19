@@ -12,7 +12,7 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light">
             <a class="navbar-brand" href="#">Task-App</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,7 +39,8 @@
                 <form>
                     <div class="form-group  was-validated">
                         <label for="name"></label>
-                        <input type="text" class="form-control" id="name" placeholder="Please enter your name" required>
+                        <input type="text" class="form-control" id="name" placeholder="Please enter your name"
+                            name="name" required>
                         <div class="invalid-feedback">
                             Please enter a name
                         </div>
@@ -56,10 +57,10 @@
                     <div class="mb-3">
                         <label for="description"></label>
                         <textarea class="form-control is-invalid" id="description" placeholder="Describe the task"
-                            required></textarea>
-                        <div class="invalid-feedback">
+                            name="description" required></textarea>
+                        <!-- <div class="invalid-feedback">
                             Please enter a message in the textarea
-                        </div>
+                        </div> -->
                     </div>
                 </form>
             </div>
@@ -71,7 +72,7 @@
             <div class="col">
                 <div class="form-group">
                     <label for="assigned-person"></label>
-                    <select class="form-control" id="assigned-person">
+                    <select class="form-control" id="assigned-person" name="assigned-person">
                         <option>Robin</option>
                         <option>Richie</option>
                         <option>Pedro</option>
@@ -87,7 +88,7 @@
             </div>
             <div class="col">
                 <label for="date-input"></label>
-                <input type="date" class="form-control" id="date-input">
+                <input type="date" class="form-control" id="date-input" name="date-input">
             </div>
         </div>
         <div class="row">
@@ -97,7 +98,7 @@
             <div class="col">
                 <div class="form-group">
                     <label for="status"></label>
-                    <select class="form-control" id="status">
+                    <select class="form-control" id="status" name="status">
                         <option>Completed</option>
                         <option>In Progress</option>
                         <option>Pending Assignee</option>
@@ -108,7 +109,78 @@
         <div class="text-center">
             <input type="submit" class="btn btn-primary" value="Send">
         </div>
+        <div class="row justify-content-center pt-4">
+            <h2>Tasks: </h2>
+        </div>
+        <div class="row justify-content-center">
+            <ul class="list-group list-group-horizontal">
+                <li class="list-group-item">
+                    <div class="card-body">
+                        <h5 class="card-title">Name Test Test Test</h5>
+                        <p class="card-text">Description Test Test Test</p>
+                        <p class="card-text">Assignee Test Test Test</p>
+                        <p class="card-text">Due Date Test Test Test</p>
+                        <p class="card-text">Status Test Test Test</p>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="card-body">
+                        <h5 class="card-title">Name Test Test Test</h5>
+                        <p class="card-text">Description Test Test Test</p>
+                        <p class="card-text">Assignee Test Test Test</p>
+                        <p class="card-text">Due Date Test Test Test</p>
+                        <p class="card-text">Status Test Test Test</p>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="card-body">
+                        <h5 class="card-title">Name Test Test Test</h5>
+                        <p class="card-text">Description Test Test Test</p>
+                        <p class="card-text">Assignee Test Test Test</p>
+                        <p class="card-text">Due Date Test Test Test</p>
+                        <p class="card-text">Status Test Test Test</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="row justify-content-center">
+            <ul class="list-group list-group-horizontal mt-4">
+                <li class="list-group-item">
+                    <div class="card-body">
+                        <h5 class="card-title">Name Test Test Test</h5>
+                        <p class="card-text">Description Test Test Test</p>
+                        <p class="card-text">Assignee Test Test Test</p>
+                        <p class="card-text">Due Date Test Test Test</p>
+                        <p class="card-text">Status Test Test Test</p>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="card-body">
+                        <h5 class="card-title">Name Test Test Test</h5>
+                        <p class="card-text">Description Test Test Test</p>
+                        <p class="card-text">Assignee Test Test Test</p>
+                        <p class="card-text">Due Date Test Test Test</p>
+                        <p class="card-text">Status Test Test Test</p>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="card-body">
+                        <h5 class="card-title">Name Test Test Test</h5>
+                        <p class="card-text">Description Test Test Test</p>
+                        <p class="card-text">Assignee Test Test Test</p>
+                        <p class="card-text">Due Date Test Test Test</p>
+                        <p class="card-text">Status Test Test Test</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
     </div>
+
+    </div>
+    </div>
+
+
 
 </body>
 
