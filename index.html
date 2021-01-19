@@ -31,13 +31,12 @@
     <!-- Name input -->
     <div class="container">
         <div class="row">
-            <div class="col text-center pt-4 mt-1">
-                <p>Name: </p>
+            <div class="col text-right pt-4 mt-1">
+                <label for="name" class="text-uppercase font-weight-bold">Name: </label>
             </div>
             <div class="col">
                 <form>
-                    <div class="form-group  was-validated">
-                        <label for="name"></label>
+                    <div class="form-group  was-validated pt-4">
                         <input type="text" class="form-control" id="name" placeholder="Please enter your name"
                             name="name" required>
                         <div class="invalid-feedback">
@@ -49,14 +48,13 @@
         </div>
         <!-- Description input -->
         <div class="row">
-            <div class="col text-center pt-4 mt-1">
-                <p>Description: </p>
+            <div class="col text-right pt-4 mt-1">
+                <label for="description" class="text-uppercase font-weight-bold">Description: </label>
             </div>
             <div class="col">
                 <form class="was-validated">
-                    <div class="mb-3">
-                        <label for="description"></label>
-                        <textarea class="form-control is-invalid" id="description" placeholder="Describe the task"
+                    <div class="mb-3 pt-4">
+                        <textarea class="form-control" id="description" placeholder="Describe the task"
                             name="description" required></textarea>
                         <div class="invalid-feedback">
                             Please enter a message in the textarea
@@ -67,12 +65,11 @@
         </div>
         <!-- Assignee Input -->
         <div class="row">
-            <div class="col text-center pt-4 mt-1">
-                <p>Assigned To: </p>
+            <div class="col text-right pt-4 mt-1">
+                <label for="assigned-person" class="text-uppercase font-weight-bold">Assigned To: </label>
             </div>
             <div class="col">
-                <div class="form-group">
-                    <label for="assigned-person"></label>
+                <div class="form-group pt-4">
                     <select class="form-control" id="assigned-person" name="assigned-person">
                         <option>Robin</option>
                         <option>Richie</option>
@@ -85,22 +82,20 @@
         </div>
         <!-- Due Date input -->
         <div class="row">
-            <div class="col text-center pt-4 mt-1">
-                <p>Due Date: </p>
+            <div class="col text-right pt-4 mt-1">
+                <label for="date-input" class="text-uppercase font-weight-bold">Due Date: </label>
             </div>
-            <div class="col">
-                <label for="date-input"></label>
+            <div class="col pt-4">
                 <input type="date" class="form-control" id="date-input" name="date-input">
             </div>
         </div>
         <!-- Status Input -->
         <div class="row">
-            <div class="col text-center pt-4 mt-1">
-                <p>Status: </p>
+            <div class="col text-right pt-4 mt-1">
+                <label for="status" class="text-uppercase font-weight-bold">Status: </label>
             </div>
             <div class="col">
-                <div class="form-group">
-                    <label for="status"></label>
+                <div class="form-group pt-4">
                     <select class="form-control" id="status" name="status">
                         <option>Completed</option>
                         <option>In Progress</option>
