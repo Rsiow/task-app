@@ -1,10 +1,3 @@
-//Variables for the forms
-const nameInput = document.querySelector('#name-input');
-const descriptionInput = document.querySelector('#description-input');
-const assignedInput = document.querySelector('#assigned-input');
-const dateInput = document.querySelector('#date-target');
-const statusInput = document.querySelector('#status-input');
-
 // Variables for the input fields within the forms
 const description = document.querySelector('#description');
 const name2 = document.querySelector('#name');
@@ -15,15 +8,20 @@ const submitButton = document.querySelector('#submit-button');
 
 // Submitting will validate check all inputs
 submitButton.addEventListener('click', (event) => {
+    let nameValue = name2.value;
+    let descriptionValue = description.value;
+    let assignedPersonValue = assignedPerson.value;
+    let dateValue = dateItself.value;
+    let statusValue = statusCheck.value;
     event.preventDefault();
-    if (name2.value.length > 5) {
+    if (nameValue.length > 5) {
         name2.classList.add('is-valid');
         name2.classList.remove('is-invalid');
     } else {
         name2.classList.add('is-invalid');
         name2.classList.remove('is-valid');
     };
-    if (description.value.length > 5) {
+    if (descriptionValue.length > 5) {
         description.classList.add('is-valid');
         description.classList.remove('is-invalid');
     } else {
@@ -31,25 +29,28 @@ submitButton.addEventListener('click', (event) => {
         description.classList.remove('is-valid');
     };
 
-    if (assignedPerson.value.length > 5) {
+    if (assignedPersonValue.length > 5) {
         assignedPerson.classList.add('is-valid');
         assignedPerson.classList.remove('is-invalid');
     } else {
         assignedPerson.classList.add('is-invalid');
         assignedPerson.classList.remove('is-valid');
     };
-    if (dateItself.value != '') {
+    if (dateValue != '') {
         dateItself.classList.add('is-valid');
         dateItself.classList.remove('is-invalid');
     } else {
         dateItself.classList.add('is-invalid');
         dateItself.classList.remove('is-valid');
     };
-    if (statusCheck.value != '') {
+    if (statusValue != '') {
         statusCheck.classList.add('is-valid');
         statusCheck.classList.remove('is-invalid');
     } else {
         statusCheck.classList.add('is-invalid');
         statusCheck.classList.remove('is-valid');
     };
+    let newTask = new TaskManager();
+    newTask.addTask(nameValue, descriptionValue, assignedPersonValue, dateValue, statusValue);
+    console.log(newTask.tasks);
 });
