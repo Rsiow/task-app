@@ -1,0 +1,1 @@
+Greetings and welcome to Seethal and Richie's first attempt at creating a simple project - A task app!
