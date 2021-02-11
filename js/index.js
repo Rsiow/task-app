@@ -5,6 +5,7 @@ const assignedPerson = document.querySelector('#assigned-person');
 const dateItself = document.querySelector('#date-input');
 const statusCheck = document.querySelector('#status');
 const submitButton = document.querySelector('#submit-button');
+let currentIdValue = 0;
 
 // Submitting will validate check all inputs
 submitButton.addEventListener('click', (event) => {
@@ -14,12 +15,15 @@ submitButton.addEventListener('click', (event) => {
     let dateValue = dateItself.value;
     let statusValue = statusCheck.value;
     event.preventDefault();
+
     if (nameValue.length > 5) {
         name2.classList.add('is-valid');
         name2.classList.remove('is-invalid');
     } else {
         name2.classList.add('is-invalid');
         name2.classList.remove('is-valid');
+        return false;
+
     };
     if (descriptionValue.length > 5) {
         description.classList.add('is-valid');
@@ -27,6 +31,7 @@ submitButton.addEventListener('click', (event) => {
     } else {
         description.classList.add('is-invalid');
         description.classList.remove('is-valid');
+        return false;
     };
 
     if (assignedPersonValue.length > 5) {
@@ -35,6 +40,7 @@ submitButton.addEventListener('click', (event) => {
     } else {
         assignedPerson.classList.add('is-invalid');
         assignedPerson.classList.remove('is-valid');
+        return false;
     };
     if (dateValue != '') {
         dateItself.classList.add('is-valid');
@@ -42,6 +48,7 @@ submitButton.addEventListener('click', (event) => {
     } else {
         dateItself.classList.add('is-invalid');
         dateItself.classList.remove('is-valid');
+        return false;
     };
     if (statusValue != '') {
         statusCheck.classList.add('is-valid');
@@ -49,8 +56,28 @@ submitButton.addEventListener('click', (event) => {
     } else {
         statusCheck.classList.add('is-invalid');
         statusCheck.classList.remove('is-valid');
+        return false;
     };
-    let newTask = new TaskManager();
+    // currentIdValue++;
+    let newTask = new TaskManager(0);
     newTask.addTask(nameValue, descriptionValue, assignedPersonValue, dateValue, statusValue);
     console.log(newTask.tasks);
+    // newTask.render()
+
+    // const taskHtml = createTaskHtml(nameValue, descriptionValue, assignedPersonValue, dateValue, statusValue);
+    // console.log(taskHtml);
+
+    name2.value = '';
+    name2.classList.remove('is-valid');
+    description.value = '';
+    description.classList.remove('is-valid');
+    assignedPerson.value = '';
+    assignedPerson.classList.remove('is-valid');
+    dateItself.value = '';
+    dateItself.classList.remove('is-valid');
+    statusCheck.value = '';
+    statusCheck.classList.remove('is-valid');
+
+
 });
+
