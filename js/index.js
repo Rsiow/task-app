@@ -5,27 +5,23 @@ const assignedPerson = document.querySelector('#assigned-person');
 const dateItself = document.querySelector('#date-input');
 const statusCheck = document.querySelector('#status');
 const submitButton = document.querySelector('#submit-button');
-let currentIdValue = 0;
+const goToTasks = document.querySelector('#task-card');
+const newTask = new TaskManager(1);
 
 // Submitting will validate check all inputs
 submitButton.addEventListener('click', (event) => {
-    let nameValue = name2.value;
-    let descriptionValue = description.value;
-    let assignedPersonValue = assignedPerson.value;
-    let dateValue = dateItself.value;
-    let statusValue = statusCheck.value;
     event.preventDefault();
-
-    if (nameValue.length > 5) {
+    // Validate name of person creating new task has more than 5 characters
+    if (name2.value.length > 5) {
         name2.classList.add('is-valid');
         name2.classList.remove('is-invalid');
     } else {
         name2.classList.add('is-invalid');
         name2.classList.remove('is-valid');
         return false;
-
     };
-    if (descriptionValue.length > 5) {
+    // Validate description length is more than 5 characters
+    if (description.value.length > 5) {
         description.classList.add('is-valid');
         description.classList.remove('is-invalid');
     } else {
@@ -33,16 +29,17 @@ submitButton.addEventListener('click', (event) => {
         description.classList.remove('is-valid');
         return false;
     };
-
-    if (assignedPersonValue.length > 5) {
+    // Validate name of person assigned to task has more than 5 characters
+    if (assignedPerson.value.length > 5) {
         assignedPerson.classList.add('is-valid');
-        assignedPerson.classList.remove('is-invalid');
+        assignedPerson.classList.remove
     } else {
         assignedPerson.classList.add('is-invalid');
         assignedPerson.classList.remove('is-valid');
         return false;
     };
-    if (dateValue != '') {
+    // Validate a correct date is entered
+    if (dateItself.value != '') {
         dateItself.classList.add('is-valid');
         dateItself.classList.remove('is-invalid');
     } else {
@@ -50,7 +47,8 @@ submitButton.addEventListener('click', (event) => {
         dateItself.classList.remove('is-valid');
         return false;
     };
-    if (statusValue != '') {
+    // Validate a task status has been selected
+    if (statusCheck.value != '') {
         statusCheck.classList.add('is-valid');
         statusCheck.classList.remove('is-invalid');
     } else {
@@ -58,26 +56,36 @@ submitButton.addEventListener('click', (event) => {
         statusCheck.classList.remove('is-valid');
         return false;
     };
-    // currentIdValue++;
-    let newTask = new TaskManager(0);
-    newTask.addTask(nameValue, descriptionValue, assignedPersonValue, dateValue, statusValue);
-    console.log(newTask.tasks);
-    // newTask.render()
+    newTask.addTask(name2.value, description.value, assignedPerson.value, dateItself.value, statusCheck.value);
 
-    // const taskHtml = createTaskHtml(nameValue, descriptionValue, assignedPersonValue, dateValue, statusValue);
-    // console.log(taskHtml);
+    removeFields();
+    newTask.render()
 
-    name2.value = '';
-    name2.classList.remove('is-valid');
-    description.value = '';
-    description.classList.remove('is-valid');
-    assignedPerson.value = '';
-    assignedPerson.classList.remove('is-valid');
-    dateItself.value = '';
-    dateItself.classList.remove('is-valid');
-    statusCheck.value = '';
-    statusCheck.classList.remove('is-valid');
+    function removeFields() {
+        name2.value = '';
+        name2.classList.remove('is-valid');
+        description.value = '';
+        description.classList.remove('is-valid');
+        assignedPerson.value = '';
+        assignedPerson.classList.remove('is-valid');
+        dateItself.value = '';
+        dateItself.classList.remove('is-valid');
+        statusCheck.value = '';
+        statusCheck.classList.remove('is-valid');
+    }
 
-
+});
+goToTasks.addEventListener('click', (event) => {
+    if (event.target.classList.contains('done-button')) {
+        event.preventDefault();
+        const parentLi = event.target.parentElement.parentElement.parentElement.parentElement;
+        let taskId = Number(parentLi.dataset.taskId);
+        let task = newTask.getTaskById(taskId);
+        let doneButton = document.querySelector('#done-invisible');
+        if (task.status === 'In Progress' || task.status === 'Pending') {
+            task.status = 'Completed';
+            newTask.render();
+        };
+    };
 });
 

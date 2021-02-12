@@ -1,5 +1,5 @@
-const createTaskHtml = (name, description, assignedTo, dueDate, status) => {
-    const html = `<li class="card" style="min-width: 50vw">
+const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
+    const html = `<li id="individual-card" class="card" data-task-id="${id}" style="min-width: 50vw">
             <div class="card-body">
                 <h5 class="card-title">${name}</h5>
                 <p class="card-text">
@@ -12,7 +12,7 @@ const createTaskHtml = (name, description, assignedTo, dueDate, status) => {
                         <p class="card-text"><b>${status}</b></p>
                     </div>
                     <div class="col-3">
-                        <button class="btn btn-outline-success done-button">
+                        <button id="done-invisible" class="btn btn-outline-success done-button">
                             Done
                         </button>
                     </div>
@@ -28,9 +28,9 @@ const createTaskHtml = (name, description, assignedTo, dueDate, status) => {
 };
 
 class TaskManager {
-    constructor(currentId = 0) {
-        this.tasks = [];
+    constructor(currentId) {
         this.currentId = currentId;
+        this.tasks = [];
     };
     addTask(name, description, assignedTo, dueDate, status) {
         const taskAdd = {
@@ -43,28 +43,28 @@ class TaskManager {
         };
         this.tasks.push(taskAdd);
     };
-    // render() {
-    //     console.log('l;kjelkjdasflkj');
-    //     let tasksHtmlList = [];
-    //     this.tasks.forEach(element => {
-    //         let task = this.tasks[element];
-    //         let date = new Date(task.dueDate);
-    //         let formattedDate = date.toDateString();
-    //         let taskHtml = createTaskHtml(task.id, task.name, task.description, task.assignedTo, task.formattedDate, task.status);
-    //         tasksHtmlList.push(taskHtml);
-    //     });
-    //     let taskList = tasksHtmlList.join('\n');
-    //     document.querySelector('#task-card').innerHTML = tasksHtml;
-    // }
-    // render() {
-    //     let tasksHtmlList = [];
-    //     this.tasks.forEach(element => {
-    //         tasksHtmlList = this.tasks;
-    //         // console.log(tasksHtmlList);
-    //         let taskHtml = createTaskHtml(element)
-    //         console.log(taskHtml);
-    //         let date = new Date(task.dueDate);
-    //         let formattedDate = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
-    //     });
-    // };
+    render() {
+        let tasksHtmlList = [];
+        for (let i = 0; i < this.tasks.length; i++) {
+            const task = this.tasks[i];
+            const date = new Date(task.dueDate);
+            let formattedDate = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
+            let taskHtml = createTaskHtml(task.id, task.name, task.description, task.assignedTo, formattedDate, task.status);
+            tasksHtmlList.push(taskHtml);
+        };
+        // tasksList is tasksHtml in aaron's instructions, task 6, step 2, #4
+        let tasksList = tasksHtmlList.join('\n');
+
+        goToTasks.innerHTML = tasksList;
+    };
+    getTaskById(taskId) {
+        let foundTask;
+        for (let i = 0; i < this.tasks.length; i++) {
+            const task = this.tasks[i];
+            if (task.id === taskId) {
+                foundTask = task;
+            };
+        }
+        return foundTask
+    }
 };
