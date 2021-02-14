@@ -1,34 +1,36 @@
 const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
-    const html = `<li id="individual-card" class="card" data-task-id="${id}" style="min-width: 50vw">
-            <div class="card-body">
-                <h5 class="card-title">Name: ${name}</h5>
-                <p class="card-text">
-                    Task Description: ${description}
-                </p>
-                <p class="card-text">${assignedTo} is on the job!</p>
-                <p class="card-text">Finish by: ${dueDate}</p>
-                <div class="card-footer row">
-                    <div class="col-6">
-                        <p class="card-text"><b>Task status: ${status}</b></p>
-                    </div>
-                    <div class="col-3">
-                        <button id="done-invisible" class="btn btn-outline-success done-button">
-                            Done
-                        </button>
-                    </div>
-                    <div class="col-3">
-                        <button class="btn btn-outline-danger delete-button">
-                            Delete
-                        </button>
-                    </div>
+    const html = `
+    <li id="individual-card" class="card" data-task-id="${id}" style="min-width: 50vw">
+        <div class="card-body">
+            <h5 class="card-title">Name: ${name}</h5>
+            <p class="card-text">
+                Task Description: ${description}
+            </p>
+            <p class="card-text">${assignedTo} is on the job!</p>
+            <p class="card-text">Finish by: ${dueDate}</p>
+            <div class="card-footer row">
+                <div class="col-6">
+                    <p class="card-text"><b>Task status: ${status}</b></p>
+                </div>
+                <div class="col-3">
+                    <button id="done-invisible" class="btn btn-outline-success done-button">
+                        Done
+                    </button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-outline-danger delete-button">
+                        Delete
+                    </button>
                 </div>
             </div>
-            </li>`;
+        </div>
+    </li>
+    `;
     return html;
 };
 
 class TaskManager {
-    constructor(currentId) {
+    constructor(currentId = 0) {
         this.currentId = currentId;
         this.tasks = [];
     };
@@ -66,5 +68,22 @@ class TaskManager {
             };
         }
         return foundTask
+    };
+    save() {
+        let tasksJson = JSON.stringify(this.tasks);
+        localStorage.setItem('tasks', tasksJson);
+        let currentId = JSON.stringify(this.currentId);
+        localStorage.setItem('currentId', currentId);
+    };
+    load() {
+        if (localStorage.getItem('tasks')) {
+            let tasksJson = localStorage.getItem('tasks');
+            this.tasks = JSON.parse(tasksJson);
+        };
+        if (localStorage.getItem('currentId')) {
+            let currentId = localStorage.getItem('currentId');
+            currentId = Number(currentId);
+            this.currentId = JSON.parse(currentId);
+        }
     }
 };

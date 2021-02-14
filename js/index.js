@@ -6,7 +6,9 @@ const dateItself = document.querySelector('#date-input');
 const statusCheck = document.querySelector('#status');
 const submitButton = document.querySelector('#submit-button');
 const goToTasks = document.querySelector('#task-card');
-const newTask = new TaskManager(1);
+const newTask = new TaskManager();
+newTask.load();
+newTask.render();
 
 // Submitting will validate check all inputs
 submitButton.addEventListener('click', (event) => {
@@ -57,10 +59,10 @@ submitButton.addEventListener('click', (event) => {
         return false;
     };
     newTask.addTask(name2.value, description.value, assignedPerson.value, dateItself.value, statusCheck.value);
-
     removeFields();
-    newTask.render()
+    newTask.render();
 
+    // Reset all input fields and clear it of previous input
     function removeFields() {
         name2.value = '';
         name2.classList.remove('is-valid');
@@ -73,19 +75,20 @@ submitButton.addEventListener('click', (event) => {
         statusCheck.value = '';
         statusCheck.classList.remove('is-valid');
     }
+    goToTasks.addEventListener('click', (event) => {
+        if (event.target.classList.contains('done-button')) {
+            event.preventDefault();
+            const parentLi = event.target.parentElement.parentElement.parentElement.parentElement;
+            let taskId = Number(parentLi.dataset.taskId);
+            let task = newTask.getTaskById(taskId);
+            let doneButton = document.querySelector('#done-invisible');
+            if (task.status === 'In Progress' || task.status === 'Pending') {
+                task.status = 'Completed';
+                newTask.render();
+            };
 
-});
-goToTasks.addEventListener('click', (event) => {
-    if (event.target.classList.contains('done-button')) {
-        event.preventDefault();
-        const parentLi = event.target.parentElement.parentElement.parentElement.parentElement;
-        let taskId = Number(parentLi.dataset.taskId);
-        let task = newTask.getTaskById(taskId);
-        let doneButton = document.querySelector('#done-invisible');
-        if (task.status === 'In Progress' || task.status === 'Pending') {
-            task.status = 'Completed';
-            newTask.render();
         };
-    };
-});
 
+    });
+    newTask.save();
+});
