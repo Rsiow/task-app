@@ -75,20 +75,30 @@ submitButton.addEventListener('click', (event) => {
         statusCheck.value = '';
         statusCheck.classList.remove('is-valid');
     }
-    goToTasks.addEventListener('click', (event) => {
-        if (event.target.classList.contains('done-button')) {
-            event.preventDefault();
-            const parentLi = event.target.parentElement.parentElement.parentElement.parentElement;
-            let taskId = Number(parentLi.dataset.taskId);
-            let task = newTask.getTaskById(taskId);
-            let doneButton = document.querySelector('#done-invisible');
-            if (task.status === 'In Progress' || task.status === 'Pending') {
-                task.status = 'Completed';
-                newTask.render();
-            };
-
+    newTask.save();
+});
+goToTasks.addEventListener('click', (event) => {
+    if (event.target.classList.contains('done-button')) {
+        event.preventDefault();
+        const parentLi = event.target.parentElement.parentElement.parentElement.parentElement;
+        let taskId = Number(parentLi.dataset.taskId);
+        let task = newTask.getTaskById(taskId);
+        let doneButton = document.querySelector('#done-invisible');
+        if (task.status === 'In Progress' || task.status === 'Pending') {
+            task.status = 'Completed';
+            newTask.save();
+            newTask.render();
         };
 
-    });
-    newTask.save();
+    };
+    if (event.target.classList.contains('delete-button')) {
+        event.preventDefault();
+        const parentLi = event.target.parentElement.parentElement.parentElement.parentElement;
+        let taskId = Number(parentLi.dataset.taskId);
+        newTask.delete(taskId);
+        newTask.save();
+        newTask.render();
+    };
+
+
 });
