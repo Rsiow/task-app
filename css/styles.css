@@ -9,8 +9,18 @@ nav {
 
 #submit-button {
     display: block;
-    width: 100%;
+    width: 100%; 
 }
+
+#submit-button:hover {
+    background-color: #1e56da}
+
+#submit-button:active {
+  background-color: #1e56da;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
 
 #date-input {
     text-transform: uppercase;
