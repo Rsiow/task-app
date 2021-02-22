@@ -1,5 +1,5 @@
 nav {
-    background-color:lightblue !important;
+    background-color: lightblue !important;
 }
 
 #text-size {
@@ -29,7 +29,6 @@ nav {
 #individual-card {
     background-color:lightblue;
 }
-
-#footer {
+.footer-color {
     background-color: lightblue;
 }
