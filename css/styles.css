@@ -1,9 +1,9 @@
 nav {
-    background-color: #56D2D1 !important;
+    background-color:lightblue !important;
 }
 
 #text-size {
-    font-size: 45px;
+    font-size: 35px;
     font-weight: bold;
 }
 
@@ -27,5 +27,9 @@ nav {
 }
 
 #individual-card {
-    background-color: #56D2D1;
+    background-color:lightblue;
+}
+
+#footer {
+    background-color: lightblue;
 }
