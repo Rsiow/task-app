@@ -15,10 +15,13 @@
 <body>
     <!-- Navbar -->
     <header>
-        <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-light text justify-content-center">
-                <a id="text-size" class="navbar-brand" href="name">TASK-A-TRON</a>
-            </nav>
+        <!-- <div class="container-fluid"> -->
+        <nav class="navbar navbar-expand-lg navbar-light text justify-content-center">
+            <div class="container-fluid justify-content-center">
+                <a id="text-size" class="navbar-brand" href="#">TASK-A-TRON</a>
+            </div>
+
+        </nav>
         </div>
     </header>
     <!-- Name input -->
@@ -33,7 +36,7 @@
                     <input type="text" class="form-control" id="name" placeholder="Enter your name" name="name"
                         required>
                     <div class="invalid-feedback">
-                        Input > 5 words
+                        Input > 5 letters
                     </div>
                 </div>
             </div>
@@ -51,7 +54,7 @@
                         <textarea type="text" class="form-control" id="description" placeholder="Describe the task"
                             name="description" required></textarea>
                         <div class="invalid-feedback">
-                            Input > 5 words
+                            Input > 5 letters
                         </div>
                     </div>
                 </form>
@@ -69,7 +72,7 @@
                     <input type="text" class="form-control" id="assigned-person" placeholder="Assign a person"
                         name="assigned-person" required>
                     <div class="invalid-feedback">
-                        Input > 5 words
+                        Input > 5 letters
                     </div>
                 </div>
             </div>
@@ -131,7 +134,7 @@
 
     <!-- </div> -->
     <footer class="d-none d-md-block pt-4" id="footer">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row footer-color">
                 <div class="col">
                     <p>&copy; 2021 TASK-A-TRON. All rights reserved</p>
