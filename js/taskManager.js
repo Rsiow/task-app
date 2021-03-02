@@ -2,15 +2,19 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
     const html = `
     <li id="individual-card" class="card" data-task-id="${id}" style="min-width: 50vw">
         <div class="card-body">
-            <h5 class="card-title">Name: ${name}</h5>
-            <p class="card-text">
-                Task Description: ${description}
-            </p>
-            <p class="card-text">${assignedTo} is on the job!</p>
-            <p class="card-text">Finish by: ${dueDate}</p>
-            <div class="card-footer row">
+            <span class="card-title font-weight-bold mr-2">TASK AT HAND: </span><span class="text-capitalize text-monospace">${name}</span>
+            <br>
+            <br>
+            <span class="card-text font-weight-bold mr-2">TASK DESCRIPTION: </span><span class="text-capitalize text-monospace">${description}</span>
+            <br>
+            <br>
+            <span class="text-capitalize text-monospace">${assignedTo}</span><span class="card-text font-weight-bold ml-2">IS ON THE JOB!</span>
+            <br>
+            <br>
+            <span class="card-text font-weight-bold mr-2">COMPLETE BY: </span><span class="text-monospace">${dueDate}</span>
+            <div class="card-footer row mt-4">
                 <div class="col-6">
-                    <p class="card-text"><b>Task status: ${status}</b></p>
+                    <p class="card-text mt-1 font-weight-bold font-italic">STATUS: ${status}</p>
                 </div>
                 <div class="col-3">
                     <button id="done-invisible" class="btn btn-outline-success done-button">
