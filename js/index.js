@@ -34,7 +34,7 @@ submitButton.addEventListener('click', (event) => {
     // Validate name of person assigned to task has more than 5 characters
     if (assignedPerson.value.length > 5) {
         assignedPerson.classList.add('is-valid');
-        assignedPerson.classList.remove
+        assignedPerson.classList.remove('is-invalid');
     } else {
         assignedPerson.classList.add('is-invalid');
         assignedPerson.classList.remove('is-valid');
