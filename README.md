@@ -1,4 +1,4 @@
-# :mega: Greetings and welcome to Seethal and Richie's first attempt at a project - an app that allows users to input details of a task or tasks that need to be completed. You can see a working version of the app here - https://rsiow.github.io/task-app/
+## :mega: Greetings and welcome to Seethal and Richie's first attempt at a project - an app that allows users to input details of a task or tasks that need to be completed. You can see a working version of the app here - https://rsiow.github.io/task-app/
 
 ## :rocket: What we benefitted from this exercise
 * Pair programming. Working together in a team has benefitted us immensely as we were able to implement solutions in depth and there was greater consistency in our problem solving techniques.
